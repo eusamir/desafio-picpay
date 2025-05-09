@@ -11,11 +11,14 @@ import lombok.Setter;
 @Table(name = "app_user")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
+    private String cpf;
     @Enumerated
     private UserType type;
-    @OneToOne(mappedBy = "user")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "wallet_id")
     private Wallet wallet;
 }

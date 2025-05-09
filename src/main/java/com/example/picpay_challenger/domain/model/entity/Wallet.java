@@ -17,15 +17,16 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Wallet {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private BigDecimal balance;
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private  User user;
+
+    @OneToOne(mappedBy = "wallet")
+    private User user;
 
     public Wallet(BigDecimal balance, User user){
         this.id = UUID.randomUUID();
-        this.balance= balance;
+        this.balance = balance;
         this.user = user;
     }
 }

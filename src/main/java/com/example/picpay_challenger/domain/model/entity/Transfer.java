@@ -18,6 +18,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Transfer {
     @Id
+    @Column(columnDefinition = "uuid", updatable = false, nullable = false)
     private UUID id;
     private Timestamp date;
     private BigDecimal amount;

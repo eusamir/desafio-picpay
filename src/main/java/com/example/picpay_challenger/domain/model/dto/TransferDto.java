@@ -16,5 +16,7 @@ public class TransferDto {
     private Timestamp date;
     private BigDecimal amount;
     private Long receiverId;
+    private String receiverName;
     private Long senderId;
+    private String senderName;
 }

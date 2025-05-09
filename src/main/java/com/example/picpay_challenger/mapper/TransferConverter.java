@@ -11,7 +11,9 @@ public class TransferConverter {
                 transfer.getDate(),
                 transfer.getAmount(),
                 transfer.getSender().getId(),
-                transfer.getReceiver().getId()
+                transfer.getSender().getName(),
+                transfer.getReceiver().getId(),
+                transfer.getReceiver().getName()
         );
     }
     public static Transfer toEntity(TransferDto transferDto, User sender, User receiver){

@@ -12,7 +12,7 @@ public class WalletConverter {
                 wallet.getUser().getId()
         );
     }
-    public static Wallet toEntity(Wallet wallet, User user){
-        return new Wallet(wallet.getBalance(),user);
+    public static Wallet toEntity(WalletDto walletDto, User user) {
+        return new Wallet(walletDto.getBalance(), user);
     }
 }

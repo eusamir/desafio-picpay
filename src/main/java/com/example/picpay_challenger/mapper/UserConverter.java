@@ -10,7 +10,9 @@ public class UserConverter {
                 user.getId(),
                 user.getName(),
                 user.getEmail(),
+                user.getCpf(),
                 user.getType(),
+                user.getWallet().getId(),
                 user.getWallet().getBalance()
         );
     }
@@ -18,6 +20,7 @@ public class UserConverter {
         User user = new User();
         user.setId(userDto.getId());
         user.setName(userDto.getName());
+        user.setCpf(userDto.getCpf());
         user.setType(userDto.getType());
         user.setEmail(userDto.getEmail());
 

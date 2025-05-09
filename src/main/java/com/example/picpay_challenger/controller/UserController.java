@@ -2,20 +2,27 @@ package com.example.picpay_challenger.controller;
 
 import com.example.picpay_challenger.domain.model.dto.UserDto;
 import com.example.picpay_challenger.domain.service.UserService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class UserController {
     private final UserService userService;
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
         UserDto createdUser = userService.createUser(userDto);
         return ResponseEntity.ok(createdUser);
+    }
+    @GetMapping()
+    public ResponseEntity<List<UserDto>> getAll() {
+        return ResponseEntity.ok(userService.findAll());
     }
     @GetMapping("/{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable Long id){
